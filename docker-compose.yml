@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.0.12
+    environment:
+      MYSQL_ROOT_PASSWORD: "verysecret"
+      MYSQL_DATABASE: db
+      MYSQL_USER: db
+      MYSQL_PASSWORD: "secret"
+
+  go:
+    build:
+      context: go
+    depends_on:
+      - db
